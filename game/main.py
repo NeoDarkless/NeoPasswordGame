@@ -11,13 +11,24 @@ rules = [
     "8. Every letter in your password must aLtErNaTe BeTwEeN lowercase and UPPERCASE."
     ]
 
-rule1 = rule2 = rule3 = rule4 = rule5 = rule6 = rule7 = rule8 = None
-
 def check_pass(password):
-    # 1. Your password must be at least 10 characters.
+    #1. Your password must be at least 10 characters.
     if len(password) < 10:
         rule1 = False
         print(rules[0])
+    #2. Your password must be at most 70 characters.
+    if len(password) > 70:
+        rule2 = False
+        print(rules[1])
+    #3. Your password must have at least 3 digits.
+    numeric_pass = password
+    for x in numeric_pass:
+        print(x)
+        if not x.isnumeric():
+            numeric_pass.replace(x, "")
+    print(numeric_pass)
 
 
-print("Please choose a password.")
+while True:
+    password = input("Please choose a password. > ")
+    check_pass(password)
